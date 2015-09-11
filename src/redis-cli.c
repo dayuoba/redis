@@ -77,12 +77,12 @@ int spectrum_palette_size;
 
 static redisContext *context;
 static struct config {
-    char *hostip;
+    char *hostip;//host ip
     int hostport;
     char *hostsocket;
     long repeat;
     long interval;
-    int dbnum;
+    int dbnum;//where is the default?
     int interactive;
     int shutdown;
     int monitor_mode;

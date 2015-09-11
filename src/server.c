@@ -3859,6 +3859,7 @@ int main(int argc, char **argv) {
         sdsfree(options);
     } else {
         serverLog(LL_WARNING, "Warning: no config file specified, using the default config. In order to specify a config file use %s /path/to/%s.conf", argv[0], server.sentinel_mode ? "sentinel" : "redis");
+	printf("%s", sdsnew("**hello redis**\n"));
     }
 
     server.supervised = redisIsSupervised(server.supervised_mode);
@@ -3888,6 +3889,7 @@ int main(int argc, char **argv) {
         }
         if (server.ipfd_count > 0)
             serverLog(LL_NOTICE,"The server is now ready to accept connections on port %d", server.port);
+	    printf("%s", "hello redis\n");
         if (server.sofd > 0)
             serverLog(LL_NOTICE,"The server is now ready to accept connections at %s", server.unixsocket);
     } else {
@@ -3902,6 +3904,7 @@ int main(int argc, char **argv) {
     aeSetBeforeSleepProc(server.el,beforeSleep);
     aeMain(server.el);
     aeDeleteEventLoop(server.el);
+    printf("%s", sdsnew("hello redis"));
     return 0;
 }
 
